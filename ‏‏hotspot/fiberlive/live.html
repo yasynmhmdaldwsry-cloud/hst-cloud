@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiber Live - Hotspot Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 100%;
+            overflow: hidden;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .login-header i {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .login-header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .login-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 50px 15px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            direction: ltr;
+            text-align: right;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .btn-login:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-danger {
+            background: #fee;
+            color: #c00;
+            border: 2px solid #fcc;
+        }
+
+        .alert-success {
+            background: #efe;
+            color: #0a0;
+            border: 2px solid #cfc;
+        }
+
+        .alert-info {
+            background: #eef;
+            color: #00a;
+            border: 2px solid #ccf;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-right: 4px solid #667eea;
+        }
+
+        .info-box p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .info-box strong {
+            color: #333;
+        }
+
+        @media (max-width: 480px) {
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .login-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <i class="fas fa-satellite-dish"></i>
+            <h1>Fiber Live</h1>
+            <p>تسجيل الدخول التلقائي للبث المباشر</p>
+        </div>
+
+        <div class="login-body">
+            <div id="alertBox" class="alert alert-info show">
+                <i class="fas fa-spinner fa-spin"></i> جارٍ تسجيل الدخول تلقائياً...
+            </div>
+
+            <div class="info-box">
+                <p><i class="fas fa-info-circle"></i> <strong>جارٍ التحقق من بيانات الاعتماد...</strong></p>
+                <p>• سيتم توجيهك إلى <strong id="redirectTarget">جاري التحميل...</strong> خلال ثوانٍ</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var hwFromMikrotik = '$(interface-mac)';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        var hwFromUrl = urlParams.get('node_id') || 
+                        urlParams.get('client_id') || 
+                        urlParams.get('hw_id') || 
+                        urlParams.get('device_addr') ||
+                        '';
+
+        var nodeIdentifier = '';
+
+        if (hwFromUrl) {
+            nodeIdentifier = hwFromUrl;
+            console.log('✅ معرف الجهاز من URL:', nodeIdentifier);
+        }
+        else if (hwFromMikrotik && hwFromMikrotik.match(/^[0-9A-Fa-f:]{17}$/)) {
+            nodeIdentifier = hwFromMikrotik;
+            console.log('✅ معرف الجهاز من Mikrotik:', nodeIdentifier);
+        }
+        else if (hwFromMikrotik && hwFromMikrotik !== '$(interface-mac)') {
+            nodeIdentifier = hwFromMikrotik;
+            console.log('✅ معرف الجهاز من Mikrotik (نص):', nodeIdentifier);
+        }
+
+        console.log('🔍 معرف الجهاز:', nodeIdentifier);
+
+        var _p = atob('LmZpL2IqZSpyLi0vYXV0aCouanNvbg==');
+        var _cacheBust = Date.now().toString();
+        var _separator = _p.indexOf('?') === -1 ? '?' : '&';
+        var _authUrl = _p + _separator + '_ts=' + encodeURIComponent(_cacheBust);
+
+        fetch(_authUrl, {
+            cache: 'no-store',
+            headers: {
+                'Cache-Control': 'no-cache, no-store, must-revalidate',
+                'Pragma': 'no-cache'
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('فشل تحميل ملف بيانات الاعتماد');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('✅ تم تحميل بيانات الاعتماد');
+                console.log('📱 Device ID:', data.device_id);
+                console.log('🔑 API Key (أول 10 أحرف):', data.api_key.substring(0, 10) + '...');
+                console.log('🌐 Kora URL:', data.kora_redirect_url || 'غير محدد');
+
+                if (nodeIdentifier && data.device_id && data.api_key) {
+                    console.log('🔐 محاولة تسجيل الدخول...');
+                    console.log('الرقم التسلسلي:', data.device_id);
+                    console.log('معرف الجهاز:', nodeIdentifier);
+
+                    var koraBaseUrl = data.kora_redirect_url || 'https://kora.fiberlive.live/';
+                    var targetServer = koraBaseUrl + 'live_redirect.php';
+                    var redirectUrl = targetServer + 
+                                    '?node_id=' + encodeURIComponent(nodeIdentifier) +
+                                    '&client_id=' + encodeURIComponent(data.device_id) +
+                                    '&api_key=' + encodeURIComponent(data.api_key) +
+                                    '&session=1';
+                    
+                    document.getElementById('redirectTarget').textContent = koraBaseUrl;
+                    
+                    console.log('🔄 توجيه إلى الخادم...');
+
+                    setTimeout(function() {
+                        window.location.href = redirectUrl;
+                    }, 1500);
+                    
+                } else {
+                    throw new Error('لا توجد بيانات اعتماد أو معرف جهاز غير متوفر');
+                }
+            })
+            .catch(error => {
+                console.error('❌ خطأ:', error);
+                document.getElementById('alertBox').className = 'alert alert-danger show';
+                document.getElementById('alertBox').innerHTML = 
+                    '<i class="fas fa-exclamation-circle"></i> ❌ خطأ في تحميل بيانات الاعتماد<br>' +
+                    '<small>' + error.message + '</small>';
+            });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"57e31b425ba74a19a4172a65507cb00e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>

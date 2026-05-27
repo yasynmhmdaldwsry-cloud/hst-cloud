@@ -1,0 +1,148 @@
+.imges2{
+    transform: translateY(28px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .fl{
+        filter: brightness(151);
+    }
+.imges2 img{
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    max-height: 109px;
+    object-fit: contain;
+}
+
+/* تعديل للشاشات الصغيرة */
+@media(max-width:576px)
+{
+    .imges2{
+        transform: translateY(20px);
+        height: auto;
+    }
+    .imges2 img{
+        max-width: 90%;
+        max-height: 90px;
+    }
+}
+
+/* تعديل للشاشات المتوسطة */
+@media(min-width:577px) and (max-width:768px)
+{
+    .imges2{
+        transform: translateY(25px);
+    }
+    .imges2 img{
+        max-width: 95%;
+        max-height: 100px;
+    }
+}
+.imges3{
+    width: 70px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+}
+.imges3 img{
+    max-height: 157px;
+    max-width: 214px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+.imges4{
+    position: absolute;
+    width: 100%;
+    top: -40px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+.imges4 img{
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+}
+.imges5,.imges6{
+    position: absolute;
+    top: 0px;
+    right: -105px;
+    z-index: 10;
+    max-width: 100px;
+    height: auto;
+}
+.imges5 img,.imges6 img{
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+.imges6{ 
+    right: 155px;
+}
+
+/* تعديل للشاشات الصغيرة */
+@media(max-width:576px)
+{
+    .imges3{
+        width: 60px;
+        left: 50%;
+    }
+    .imges3 img{
+        max-height: 120px;
+        max-width: 150px;
+    }
+    .imges5,.imges6{
+        max-width: 70px;
+        right: -50px;
+    }
+    .imges6{
+        right: 80px;
+    }
+}
+
+/* تعديل للشاشات المتوسطة */
+@media(min-width:577px) and (max-width:768px)
+{
+    .imges3 img{
+        max-height: 140px;
+        max-width: 180px;
+    }
+    .imges5,.imges6{
+        max-width: 85px;
+        right: -75px;
+    }
+    .imges6{
+        right: 120px;
+    }
+}
+
+
+
+.mawled{
+
+
+    /* background-image: url(../img/background.jpg); */
+    background-attachment: fixed;
+    background-repeat: revert;
+    background-size: cover;
+    background-position: center;
+    background-color: #1c6715;
+} 
+
+.imges55{
+    
+    position: absolute;
+    bottom: 800px;
+    right: -80px;
+    top: -147px;
+    width: 500px;
+    min-width: 350px;
+
+}
+

@@ -1,0 +1,428 @@
+
+.buttonopsion {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 60px;
+    background-color: rgba(90, 91, 122, 0.88);
+}
+.modal-content {
+  
+    margin: 0% auto;
+    padding: 10px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 20px;
+    background: rgba(90, 91, 122, 0.88);
+    box-shadow:0 0 5px black ;
+
+  }
+
+.close {
+    color: red;
+    float: right;
+    font-size: 45px;
+    font-weight: bold;
+    transform:translateY(-10px);
+  }
+  .close:hover,
+  .close:focus {
+    text-decoration: none;
+    cursor: pointer;      
+}
+
+
+/* /////////////////////////////////////////////////// */
+
+
+
+
+
+
+
+/* CSS لعرض الصور */
+#image-slider {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+#image-slider img {
+    width: 100%;
+    display: none;
+}
+#scrolling-text {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        box-sizing: border-box;
+        position: relative;
+        transform: translateY(-37px);
+        -webkit-transform: translateZ(0);
+    }
+    
+    #scrolling-text div {
+        display: inline-block;
+        animation: scroll 35s linear infinite;
+        color: #ffffff;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        will-change: transform;
+    }
+    
+    @keyframes scroll {
+        0%   { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+    }
+    
+/* CSS للألوان */
+:root {
+    /* --title-bg:#183470; */
+    --btn-color: #183470;
+ /*   --wrapper wrapper_bg-bg: #f0f0f0;*/
+}
+
+/* CSS لعرض الصور */
+/* حاوية الصور */
+#image-slider {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+/* الصور */
+#image-slider img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: none;
+}
+
+/* الأزرار (الأسهم) */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 0;
+    opacity: 0.8;
+    border-radius: 50%;
+}
+
+.slider-arrow:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* السهم الأيسر */
+.left-arrow {
+    right: 10px;
+}
+
+/* السهم الأيمن */
+.right-arrow {
+   left : 10px;
+}
+
+/* مؤشر النقاط */
+.slider-indicator {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.slider-indicator span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-indicator span.active {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* ///////////////////////////////////////// */
+
+
+
+#slider-container-top {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#slider-container-top img {
+    width: 100%;
+    display: none;
+}
+
+#slider-container-top .slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+    opacity: 0.8;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#slider-container-top .slider-arrow:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+#image-indicator-top {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#image-indicator-top .active {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#image-indicator-top span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* ///////////////////////////////////////// */
+
+
+  
+
+
+#full-screen-alert {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* margin: 10%; */
+    background-color: rgb(67 0 15 / 80%);
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    padding-top: 14%;
+    z-index: 1000;
+}
+
+#countdown {
+    font-size: 50px;
+    margin-top: 20px;
+}
+
+
+
+
+.hidden {
+
+
+display:none;
+}
+
+
+/* <!-- ستايل خيارات --> */
+
+
+.buttonopsion {
+padding: 10px 20px;
+color: #fff;
+text-align: center;
+border: none;
+cursor: pointer;
+border-radius: 10px 50px 10px 50px;
+margin-bottom: 10px;
+box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+transition: transform 0.15s ease, box-shadow 0.15s ease;
+-webkit-tap-highlight-color: transparent;
+}
+.buttonopsion:active {
+transform: scale(0.96);
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.modal {
+display: none;
+position: fixed;
+z-index: 999;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+padding-top: 60px;
+background-color: rgba(0, 0, 0, 0.6);
+-webkit-overflow-scrolling: touch;
+}
+.modal-content {
+margin: 0% auto;
+padding: 15px;
+border: 1px solid rgba(255,255,255,0.1);
+max-width: 400px;
+border-radius: 10px 50px 10px 50px;
+background: rgba(30, 30, 60, 0.92);
+box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+-webkit-backdrop-filter: blur(4px);
+backdrop-filter: blur(4px);
+-webkit-overflow-scrolling: touch;
+}
+
+.close {
+color: #ff4757;
+float: right;
+font-size: 40px;
+font-weight: bold;
+transform: translateY(-12px) translatex(-64px);
+text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+cursor: pointer;
+transition: color 0.15s ease;
+-webkit-tap-highlight-color: transparent;
+}
+.close:hover,
+.close:focus {
+text-decoration: none;
+cursor: pointer;
+color: #ff6b81;
+}
+
+
+
+
+
+
+/* تحسين السلايدر */
+#slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* حجم السلايدر */
+    height: 300px; /* ارتفاع السلايدر */
+	
+    margin: auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* الصور داخل السلايدر */
+#slider-container img {
+    width: 100%;
+    object-fit: fill; /* ضمان تنظيم الصور */
+    display: none; /* الصور الافتراضية مخفية */
+	 max-height: 298px;
+}
+
+/* الصورة النشطة */
+#slider-container img[style="display: block;"] {
+    display: block;
+}
+
+/* أزرار الانتقال */
+
+/* تنسيق عند التحويم على الأزرار */
+.slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
+
+
+
+.slider-indicator span.active {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* تحسين عداد الوقت */
+#countdown {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+.user-name{
+    width: 76%;
+    /* padding-left: 9px; */
+    margin-left: 46px;
+}
+
+#scrolling-text {
+
+    transform: translateY(-23px);
+  
+  }
+
+#adsvewu{
+	
+	
+    position: fixed;
+    z-index: 1111039;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-top: 60px;
+    background-color: rgba(0, 0, 0, 0.5);
+}

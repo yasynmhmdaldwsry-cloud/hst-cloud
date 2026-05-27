@@ -1,0 +1,67 @@
+#wifi-loader {
+    width: 150px;
+    height: 150px;
+    display: -webkit-box;    
+      display: -moz-box;       
+      display: -ms-flexbox;    
+      display: -webkit-flex;   
+      display: flex;    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: -36px;
+    z-index: 2;
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);  /* Safari, Chrome */
+    -ms-transform: rotate(-20deg); 
+    top: -5px;
+  }
+  
+  #wifi-loader .signal {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent;
+    border-top-color:yellow; /* لون الإشارة */
+    border-radius: 50%;
+    opacity: 0;
+    animation: fade-in-out 3s infinite ease-in-out;
+  }
+  
+  #wifi-loader .signal:nth-child(1) {
+    width: 30px;
+    height: 30px;
+    animation-delay: 2.5s;
+  }
+  
+  #wifi-loader .signal:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    animation-delay: 2.8s; 
+  }
+  
+  #wifi-loader .signal:nth-child(3) {
+    width: 90px;
+    height: 90px;
+    animation-delay: 3.1s; 
+  }
+  
+  #wifi-loader .signal:nth-child(4) {
+    width: 120px;
+    height: 120px;
+    animation-delay: 3.4s; 
+  }
+  
+  @keyframes fade-in-out {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.2);
+    }
+  }

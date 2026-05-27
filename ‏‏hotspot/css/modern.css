@@ -1,0 +1,759 @@
+/* ============================================
+   Modern Pro Theme v3 - خفيف على الأجهزة
+   بدون animations ثقيلة - فقط transitions
+   ============================================ */
+
+/* ===== 1. الخلفية المحسّنة ===== */
+body.bd {
+    background: linear-gradient(160deg, #0c1628 0%, #1a0e3a 40%, #0e1a34 70%, #0c1628 100%) !important;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* توهج خفيف في الخلفية - ثابت بدون animation */
+body.bd::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    right: -15%;
+    width: 50vw;
+    height: 50vw;
+    max-width: 400px;
+    max-height: 400px;
+    background: radial-gradient(circle, rgba(121,25,171,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+body.bd::after {
+    content: '';
+    position: fixed;
+    bottom: -15%;
+    left: -10%;
+    width: 45vw;
+    height: 45vw;
+    max-width: 350px;
+    max-height: 350px;
+    background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ===== 2. البطاقة الرئيسية - Glassmorphism خفيف ===== */
+.screen.sc {
+    background: rgba(15, 20, 40, 0.75) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 24px !important;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+    max-width: 400px;
+    min-width: 300px;
+    margin: 15px auto !important;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 3. منطقة الهيدر (الشعار + اسم الشبكة) ===== */
+.screen-background-shape8.sc-bg-shape8 {
+    background: linear-gradient(170deg, 
+        rgba(121, 25, 171, 0.85) 0%, 
+        rgba(23, 54, 114, 0.9) 60%,
+        rgba(15, 20, 50, 0.95) 100%) !important;
+    border-radius: 0 0 30px 30px !important;
+    box-shadow: 0 4px 20px rgba(121, 25, 171, 0.25) !important;
+    padding: 15px 10px 20px !important;
+}
+
+.screen-background-shape9 {
+    box-shadow: none !important;
+}
+
+/* ===== 4. اسم الشبكة ===== */
+.network-prefix[data-n-n] {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 25%, #ffd700 50%, #fff8dc 75%, #ffd700 100%) !important;
+    background-size: 200% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: goldShimmer 3s linear infinite !important;
+    text-shadow: none !important;
+    filter: drop-shadow(0 2px 4px rgba(255, 215, 0, 0.3)) !important;
+}
+
+@keyframes goldShimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.text-main {
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    display: block !important;
+    background: linear-gradient(135deg, #00f5ff 0%, #7b68ee 25%, #ff6b9d 50%, #ffd700 75%, #00f5ff 100%) !important;
+    background-size: 300% auto !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    animation: rainbowGlow 4s ease-in-out infinite !important;
+    filter: drop-shadow(0 0 8px rgba(123, 104, 238, 0.5)) drop-shadow(0 0 20px rgba(0, 245, 255, 0.3)) !important;
+    padding: 5px 15px !important;
+}
+
+@keyframes rainbowGlow {
+    0%, 100% { background-position: 0% center; filter: drop-shadow(0 0 8px rgba(123, 104, 238, 0.5)) drop-shadow(0 0 20px rgba(0, 245, 255, 0.3)); }
+    50% { background-position: 100% center; filter: drop-shadow(0 0 12px rgba(255, 107, 157, 0.6)) drop-shadow(0 0 25px rgba(255, 215, 0, 0.4)); }
+}
+
+.network-name {
+    text-align: center !important;
+    padding: 10px 0 !important;
+    transform: translateX(49px);
+    transition: transform 0.3s ease;
+}
+
+/* ===== 5. حقل الإدخال ===== */
+.login-input {
+    background: rgba(255, 255, 255, 0.07) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 14px !important;
+    color: #fff !important;
+    padding: 14px 18px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    text-align: center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+    width: 90% !important;
+    height: auto !important;
+}
+
+.login-input:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(121, 25, 171, 0.6) !important;
+    box-shadow: 0 0 0 3px rgba(121, 25, 171, 0.15) !important;
+    outline: none !important;
+}
+
+.login-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+    font-weight: 500;
+}
+
+/* ===== 6. زر تسجيل الدخول الرئيسي ===== */
+.login-submit.btn.btn_color {
+    background: linear-gradient(135deg, #7919ab 0%, #5a1480 50%, #173672 100%) !important;
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 14px 24px !important;
+    font-size: 17px !important;
+    font-weight: 800 !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(121, 25, 171, 0.35) !important;
+    transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.login-submit.btn:active {
+    transform: scale(0.97) !important;
+    box-shadow: 0 2px 8px rgba(121, 25, 171, 0.25) !important;
+}
+
+/* ===== 7. أزرار الخيارات (QR, خيارات, قرآن) ===== */
+.buttonopsion.btn.btn_color {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 9px 16px !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+    transition: background 0.2s ease, border-color 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.buttonopsion.btn:active {
+    background: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(0.96) !important;
+}
+
+/* ===== 8. قائمة السرعة (select) ===== */
+.sc_bg_shape8,
+select#speed,
+select#speed2 {
+    background: linear-gradient(135deg, rgba(121, 25, 171, 0.7), rgba(23, 54, 114, 0.8)) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 14px !important;
+    padding: 13px 15px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    width: 100% !important;
+    cursor: pointer;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    text-align: center;
+    text-align-last: center;
+    box-shadow: 0 3px 12px rgba(121, 25, 171, 0.2) !important;
+}
+
+select option {
+    background: #1a0e3a;
+    color: #fff;
+    padding: 10px;
+}
+
+/* ===== 9. أزرار أسفل الصفحة (أسعار + نقاط البيع) ===== */
+.bottom-buttons-row,
+button[data-price-button],
+button[data-sell-point-button],
+#showCardPricesButton,
+#showSellPointsButton {
+    border-radius: 12px !important;
+}
+
+/* ===== 10. الجدول في صفحة الحالة ===== */
+#status table {
+    border-collapse: separate !important;
+    border-spacing: 0 5px !important;
+    width: 100%;
+}
+
+#status table td {
+    background: linear-gradient(135deg, rgba(20, 20, 45, 0.9), rgba(35, 30, 70, 0.85)) !important;
+    padding: 11px 12px !important;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.04) !important;
+    font-size: 12px;
+}
+
+#status table td:first-child {
+    border-radius: 0 12px 12px 0 !important;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+#status table td:last-child {
+    border-radius: 12px 0 0 12px !important;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* ===== 11. أزرار صفحة الحالة (لوحة التحكم + تعديل) ===== */
+.status-btns {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.status-btns .buttonopsion {
+    flex: 1;
+    min-width: 100px;
+    max-width: 180px;
+    text-align: center;
+}
+
+/* ===== 12. شريط النجاح ===== */
+#status .title.title_bg {
+    background: linear-gradient(135deg, rgba(34, 197, 69, 0.1), rgba(121, 25, 171, 0.08)) !important;
+    border: 1px solid rgba(34, 197, 69, 0.2) !important;
+    border-right: 3px solid #22c55e !important;
+    color: #fff !important;
+    font-size: 13px !important;
+    padding: 10px 12px !important;
+    text-align: right !important;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-radius: 10px;
+    margin-bottom: 8px !important;
+}
+
+/* ===== 13. أزرار الخروج ===== */
+.logout-btns {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 12px 0;
+}
+
+#status .login-submit {
+    border-radius: 12px !important;
+    font-size: 13px !important;
+    padding: 10px 14px !important;
+    flex: 1;
+    min-width: 120px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+/* ===== 14. زر عرض التفاصيل ===== */
+.toggle-details-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    padding: 8px;
+    margin: 6px 0 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px dashed rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s ease;
+}
+
+.toggle-details-btn:active {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.toggle-details-btn .arrow {
+    transition: transform 0.2s ease;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.toggle-details-btn.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* ===== 15. ويدجت الاستهلاك ===== */
+.usage-card {
+    background: linear-gradient(145deg, #0f0f2e 0%, #1a1845 50%, #1e1250 100%) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(121, 25, 171, 0.12) !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* ===== 16. Modal (النوافذ المنبثقة) ===== */
+.modal {
+    z-index: 999 !important;
+    background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+.modal-content {
+    background: rgba(20, 15, 45, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+    max-width: 400px;
+    padding: 15px !important;
+}
+
+.modal .close {
+    color: #ff6b6b !important;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.15s ease;
+    float: right;
+    transform: translateY(-8px);
+}
+
+.modal .close:hover {
+    color: #ff4757 !important;
+}
+
+/* ===== 17. جداول الأسعار ===== */
+.price-div table,
+.sell-point-div table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 4px;
+}
+
+.price-div th,
+.sell-point-div th {
+    background: rgba(121, 25, 171, 0.2) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 10px 8px !important;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.price-div th:first-child { border-radius: 0 8px 8px 0; }
+.price-div th:last-child { border-radius: 8px 0 0 8px; }
+
+.price-div td,
+.sell-point-div td {
+    background: rgba(255, 255, 255, 0.03) !important;
+    color: #fff;
+    padding: 9px 8px !important;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ===== 18. شريط التاريخ ===== */
+#datetime-display {
+    background: rgba(121, 25, 171, 0.12) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+    padding: 8px !important;
+    direction: rtl;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 19. الفورم ===== */
+.login-form {
+    /* padding-top: 20px !important; */
+    border: none !important;
+    border-image-source: none !important;
+}
+
+/* ===== 20. رقم خدمة العملاء ===== */
+h5.servicenumber {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 13px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 15px;
+}
+
+/* ===== 21. الشعار (الصورة) ===== */
+.imges {
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+}
+
+.imges img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== 22. sc-bg-shape6 ===== */
+.sc-bg-shape6 {
+    background: linear-gradient(160deg, rgba(23, 54, 114, 0.9) 5%, rgba(121, 25, 171, 0.8) 60%) !important;
+    border-radius: 16px !important;
+    padding: 15px !important;
+}
+
+/* ===== 23. Loader الاسم الانجليزي ===== */
+.loader {
+    position: static !important;
+    width: auto !important;
+    border-right: none !important;
+    animation: none !important;
+    text-align: center;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: none !important; /* إخفاء الاسم الانجليزي العائم */
+}
+
+.loader-text {
+    color: rgba(255, 255, 255, 0.3) !important;
+    font-size: 13px !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.3) !important;
+    background: none !important;
+}
+
+/* ===== 24. النص المتحرك ===== */
+#scrolling-text {
+    transform: translateY(-15px);
+}
+
+/* ===== 25. القوائم المنسدلة داخل الخيارات ===== */
+.checkboxes label {
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.checkboxes label:active {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ===== 26. التنبيهات ===== */
+.alert-box {
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    padding: 10px 12px !important;
+    border-right: 3px solid !important;
+}
+
+/* ===== 27. QR Modal ===== */
+.file-label {
+    background: linear-gradient(135deg, #7919ab, #173672) !important;
+    box-shadow: 0 3px 10px rgba(121, 25, 171, 0.3) !important;
+    border-radius: 50% !important;
+    transition: transform 0.15s ease !important;
+}
+
+.file-label:active {
+    transform: scale(0.93) !important;
+}
+
+/* ===== 28. زر recent-cards-list ===== */
+.recent-cards-wrapper {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 4px auto 8px auto !important;
+    border-radius: 20px !important;
+    background: rgba(121,25,171,0.12) !important;
+    border: 1px solid rgba(121,25,171,0.25) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+    overflow: hidden !important;
+    transition: all 0.25s ease !important;
+    cursor: pointer !important;
+    max-width: 220px !important;
+}
+.recent-cards-wrapper:hover,
+.recent-cards-wrapper:focus-within {
+    border-color: rgba(168,85,247,0.5) !important;
+    box-shadow: 0 2px 12px rgba(121,25,171,0.2) !important;
+    background: rgba(121,25,171,0.2) !important;
+}
+.recent-cards-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    background: linear-gradient(135deg, #7919ab, #a855f7) !important;
+    border-radius: 50% !important;
+    color: #fff !important;
+    flex-shrink: 0 !important;
+    margin-right: 6px !important;
+    margin-left: -2px !important;
+}
+.recent-cards-icon svg {
+    width: 14px !important;
+    height: 14px !important;
+}
+#recent-cards-list {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 20px 20px 0 !important;
+    color: #d4b8f0 !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    padding: 7px 8px 7px 22px !important;
+    cursor: pointer !important;
+    outline: none !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='%23a78bfa' viewBox='0 0 16 16'%3E%3Cpath d='M1.646 4.646a.5.5 0 01.708 0L8 10.293l5.646-5.647a.5.5 0 01.708.708l-6 6a.5.5 0 01-.708 0l-6-6a.5.5 0 010-.708z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: left 8px center !important;
+    background-size: 10px !important;
+    width: auto !important;
+    min-width: 130px !important;
+    position: static !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    margin: 0 !important;
+    height: auto !important;
+    white-space: nowrap !important;
+}
+#recent-cards-list option {
+    background: #1a0a2e !important;
+    color: #e8dff5 !important;
+    padding: 8px !important;
+    font-size: 12px !important;
+}
+
+/* ===== 29. تجاوب الشاشات الصغيرة ===== */
+@media (max-width: 380px) {
+    .screen.sc {
+        margin: 10px 8px !important;
+        border-radius: 20px !important;
+    }
+    
+    .login-submit.btn.btn_color {
+        font-size: 15px !important;
+        padding: 12px 18px !important;
+    }
+    
+    .buttonopsion.btn.btn_color {
+        font-size: 12px !important;
+        padding: 8px 12px !important;
+    }
+    
+    .text-main {
+        font-size: 22px !important;
+    }
+    
+    .status-btns .buttonopsion {
+        min-width: 90px;
+        font-size: 11px !important;
+    }
+}
+
+/* ===== 30. إخفاء العناصر الزخرفية القديمة ===== */
+.screen-background-shape1,
+.screen-background-shape4 {
+    opacity: 0.3;
+}
+
+/* ===== 31. تحسين التمرير ===== */
+.modal-content {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
+/* ===== 32. GPU acceleration خفيف ===== */
+.screen.sc,
+.modal-content,
+.login-submit,
+.buttonopsion {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* ===== 33. إصلاح تعارضات color.min.css ===== */
+
+/* الخلفية - تجاوز التدرج القديم */
+.bd {
+    background: linear-gradient(160deg, #0c1628 0%, #1a0e3a 40%, #0e1a34 70%, #0c1628 100%) !important;
+}
+
+/* إصلاح البطاقة الرئيسية */
+.sc {
+    background-color: rgba(15, 20, 40, 0.75) !important;
+    border-radius: 24px !important;
+}
+
+/* زر btn */
+.btn {
+    background: linear-gradient(135deg, #7919ab, #173672) !important;
+    color: #fff !important;
+}
+
+/* إصلاح mark الشريط */
+.mark {
+    background: #7919ab !important;
+}
+
+/* إصلاح حقل الإدخال */
+input.login-input {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    border-radius: 14px !important;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+
+input.login-input::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+    opacity: 1 !important;
+}
+
+/* ===== 34. تحسين العرض العام ===== */
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* تأكد من أن كل شيء داخل البطاقة */
+.screen-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* إصلاح wifi-loaders position */
+#wifi-loaders {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== 35. تحسينات إضافية للنصوص ===== */
+.title.col_2 {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* wrapper الداخلي */
+.wrapper.wrapper_bg {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.wrapper {
+    box-shadow: none !important;
+}
+
+/* صورة الشعار */
+.imges img#delayed-image {
+    border-radius: 12px;
+}
+
+/* ===== 36. تحسين footer والأسفل ===== */
+.social-login {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.app-logout.back.btn {
+    border-radius: 12px !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+}
+
+/* ===== 37. تنعيم الحواف ===== */
+img {
+    border-radius: 8px;
+}
+
+th {
+    border-radius: 6px;
+}
+
+/* ===== 38. تحسين hover على أجهزة اللمس ===== */
+@media (hover: none) {
+    .buttonopsion:hover,
+    .login-submit:hover,
+    .file-label:hover {
+        transform: none !important;
+        box-shadow: inherit !important;
+    }
+}

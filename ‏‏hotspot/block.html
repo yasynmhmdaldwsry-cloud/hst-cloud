@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحذير: جهاز مبرمج خطأ</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .warning-container {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .warning-text {
+      color: #f00;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .instructions {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="warning-container">
+    <h1 class="warning-text">تحذير: هذا الجهاز مبرمج خطأ</h1>
+    <p class="instructions">يرجى احضار الجهاز لإعادة البرمجة</p>
+	<script>
+    // قم بتعريف الـ IP هنا
+    var ip = "$(ip)";
+
+    // تحقق مما إذا كانت الـ IP تبدأ بـ "10" أو "172" أو "127"، وإذا لم تكن كذلك قم بتحويل المستخدم
+    if (ip.startsWith("10") || ip.startsWith("172") || ip.startsWith("127")) {
+      // تحويل المستخدم إلى الصفحة الرئيسية في حالة مطابقة عنوان الـ IP المطلوب
+      window.location.replace("index.html");
+    }
+</script>
+																		
+
+  </div>
+</body>
+</html>
